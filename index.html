@@ -64,7 +64,7 @@ var openstreetmap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-var wms_service = "http://206.189.110.235:8000/geoserver/wms"
+var wms_service = "http://poznan-gis.pl/geoserver/wms"
 
 var nadlesnictwa = L.tileLayer.wms(wms_service, {
 layers: 'wolinskipn_orto',
