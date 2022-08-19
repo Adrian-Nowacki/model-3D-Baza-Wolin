@@ -67,7 +67,7 @@ var openstreetmap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.
 var wms_service = "https://poznan-gis.pl/geoserver/wms"
 
 var nadlesnictwa = L.tileLayer.wms(wms_service, {
-layers: 'wolinskipn_orto',
+layers: 'ortofotomapa',
 format: 'image/png',
 zIndex: 4,
 maxZoom:35,
