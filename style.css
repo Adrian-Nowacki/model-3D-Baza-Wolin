@@ -1,0 +1,31 @@
+html, body{
+    margin:0;
+    padding:0;
+    background-color:#222;
+}
+
+canvas{
+    display:block;
+}
+#box {
+display:block;
+margin-top:10px;
+float:left;
+background-color:#222!important;
+}
+model-viewer{
+    width:600px;
+    height:600px;
+    margin-left:auto;
+    margin-right:auto;
+    --progress-bar-color: #2d8659;
+}
+
+#map{
+    width:600px;
+    height:600px;
+    display:block;
+    margin:auto;
+    float:left;
+    background-color:#222;
+}

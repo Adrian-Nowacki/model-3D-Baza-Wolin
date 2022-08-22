@@ -1,55 +1,35 @@
-<!DOCTYPE html5>
-<html lang="pl">
+<!DOCTYPE html>
+<html>
 <head>
-<title>Model 3D - Wolin</title>
-<meta charset="utf-8">
-<meta name="description" content="aaaaaaaaaaaa">
-<meta name="keywords" content="UAM, geoinformacja, sekcja geoinformacji, Wolin, Międzyzdroje, Woliński Park Narodowy, WPN, WNGiG, Wydział Nauk Geograficznych i Geologicznych", >
-<meta name="author" content="Sekcja geoinformacji">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WOLIN</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="style.css" type="text/css"/>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
-   integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
-   crossorigin=""/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
  
- <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
-   integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
-   crossorigin=""></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+crossorigin=""/>
+
+
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.js"></script>
 </head>
 
 <body>
-
-<div id = "map"></div>
-
+  <div id = "map"></div>
+  <div id = "box">
+  <model-viewer src="https://poznan-gis.pl/files/wolin_przyciety.glb" camera-controls ar  ar-modes="webxr scene-viewer quick-look" touch-action="pan-y" background-color="transparent"></model-viewer>
+  </div>
+<!--<script src="main.js" type="module"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r119/three.min.js";></script>
+  <script src="OrbitControls.js";></script>
+  <script src="GLTFLoader.js";></script>-->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </body>
-
-<style>
-    html, body{
-        width:100%;
-        margin:0;
-        background-color:#222;
-    }
-    #map{
-        width:1000px;
-        height:600px;
-        position:relative;
-        display:block;
-        margin:auto;
-        margin-top:30px;
-    }
-</style>
-
 <script>
 var map = L.map( 'map', {
     center: [53.945871, 14.478967],
@@ -58,16 +38,16 @@ var map = L.map( 'map', {
     zoom: 18,
 	zoomSnap:0.001,
 });
-var openstreetmap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+var openstreetmap = L.tileLayer('', {
     maxZoom: 35,
     maxNativeZoom: 34,
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-var wms_service = "http://206.189.110.235:8000/geoserver/wms"
+var wms_service = "https://poznan-gis.pl/geoserver/wms"
 
 var nadlesnictwa = L.tileLayer.wms(wms_service, {
-layers: 'wolinskipn_orto',
+layers: 'ortofotomapa',
 format: 'image/png',
 zIndex: 4,
 maxZoom:35,
