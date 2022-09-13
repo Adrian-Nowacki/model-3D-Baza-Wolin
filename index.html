@@ -22,7 +22,7 @@ crossorigin=""/>
 <body>
   <div id = "map"></div>
   <div id = "box">
-  <model-viewer src="https://poznan-gis.pl/files/wolin_przyciety.glb" camera-controls ar  ar-modes="webxr scene-viewer quick-look" touch-action="pan-y" background-color="transparent"></model-viewer>
+  <model-viewer src="https://poznan-gis.pl/files/test.glb" camera-controls ar  ar-modes="webxr scene-viewer quick-look" touch-action="pan-y" background-color="transparent"></model-viewer>
   </div>
 <!--<script src="main.js" type="module"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r119/three.min.js";></script>
@@ -34,8 +34,8 @@ crossorigin=""/>
 var map = L.map( 'map', {
     center: [53.945871, 14.478967],
     minZoom: 7,
-	maxZoom: 35,
-    zoom: 18,
+	  maxZoom: 35,
+    zoom: 17.5,
 	zoomSnap:0.001,
 });
 var openstreetmap = L.tileLayer('', {
