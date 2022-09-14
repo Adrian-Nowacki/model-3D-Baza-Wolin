@@ -19,16 +19,19 @@ crossorigin=""/>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.js"></script>
 </head>
 
+
+<!-- skybox-image="https://polskazachwyca.pl/wp-content/uploads/2018/02/woli%C5%84ski-park-narodowy-shutterstock_611604431.jpg" -->
 <body>
   <div id = "map"></div>
   <div id = "box">
-  <model-viewer src="https://poznan-gis.pl/files/test.glb" 
+  <model-viewer src="https://poznan-gis.pl/files/Textured_mesh_1.glb" 
   min-camera-orbit='auto auto 10%'
   max-camera-orbit='auto auto 300%'
   min-field-of-view='5deg'
   max-field-of-view='5deg'
-  orientation="180deg -90deg 0deg"
-  skybox-image="https://polskazachwyca.pl/wp-content/uploads/2018/02/woli%C5%84ski-park-narodowy-shutterstock_611604431.jpg" 
+  orientation="180deg 180deg 0deg"
+  loading="eager"
+  poster="https://polskazachwyca.pl/wp-content/uploads/2018/02/woli%C5%84ski-park-narodowy-shutterstock_611604431.jpg"
   camera-controls ar  ar-modes="webxr scene-viewer quick-look" touch-action="pan-y" background-color="transparent"></model-viewer>
   </div>
 <!--<script src="main.js" type="module"></script>
