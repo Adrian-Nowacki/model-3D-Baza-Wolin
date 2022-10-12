@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>WOLIN</title>
+  <title>SMŚP - Model 3D | Ortofotomapa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="style.css" type="text/css"/>
 
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
- 
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script src="https://kit.fontawesome.com/7070b6f8e2.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
 integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
 crossorigin=""/>
-
-
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
       integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
       crossorigin=""></script>
@@ -21,9 +24,33 @@ crossorigin=""/>
 
 
 <body>
-  <div id = "map"></div>
+  <div id = "bar" class = "w3-bar">
+    <img src = "img/mosaic.png" width = "35px" height = "35px" style = "margin-top:-4px;"></img>
+    Ortofotomapa oraz model 3D Stacji Monitoringu Środowiska Przyrodniczego w Białej Górze
+  </div>
+
+<div class = "w3-container">
+    <div class = "w3-twothird w3-container w3-padding-64" style = "padding-left:100px;">
+        <p>Poniższy projekt powstał w oparciu o wyjazd Sekcji Geoinformacji Studenckiego Koła Naukowego Geografów im. S. Pawłowskiego na Obóz Naukowy Wolin w Białej Górze.
+        Do nalotu fotogrametrycznego wykorzystano bezzałogowy statek powietrzny DJI Phantom 4 Advanced. Misję zaplanowano na ponad 3-godzinny lot, mający na celu uzyskanie niemals 3500 zdjęć z wysokości 80 metrów o nachyleniu 90° oraz 75° względem poziomu.
+        </p>
+        <p>
+          Ortofotomapa została publicznie udostępniona jako WMS w strefie 5 układu współrzędnych 2000 (EPSG:2176), pod adresem:<span id = "wms-link" style = "color:#58b0ba"> https://poznan-gis.pl/geoserver/Wolin/wms?version=1.1.0</span>.
+        </p>
+    </div>
+
+    <div class = "w3-third">
+        <img id = "drone-logo" src = "img/drone.png" width = "125px" height = "125px"></img>
+    </div>
+</div>
+
+  <div class = "w3-conteiner">
+    <div class = "w3-content w3-padding-64" id = "map">
+    </div>
+  </div>
+
   <div id = "box">
-  <model-viewer src="https://poznan-gis.pl/files/Textured_mesh_1.glb" 
+  <model-viewer id = "model-viewer" src="https://poznan-gis.pl/files/Textured_mesh_1.glb" 
   min-camera-orbit='auto auto 10%'
   max-camera-orbit='auto auto 300%'
   min-field-of-view='5deg'
@@ -35,29 +62,53 @@ crossorigin=""/>
   poster="https://polskazachwyca.pl/wp-content/uploads/2018/02/woli%C5%84ski-park-narodowy-shutterstock_611604431.jpg"
   camera-controls ar  ar-modes="webxr scene-viewer quick-look" touch-action="pan-y" background-color="transparent"></model-viewer>
   </div>
-<!--<script src="main.js" type="module"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r119/three.min.js";></script>
-  <script src="OrbitControls.js";></script>
-  <script src="GLTFLoader.js";></script>-->
+
+  <footer id = "footer" class = "w3-xlarge  w3-container w3-center w3-padding-32 w3-opacity-min">
+    © Sekcja Geoinformacji 2022
+  <div class = "w3-padding-32">
+    <a href = "https://www.facebook.com/SekcjaGeoinformacjiUam/" target="_blank">
+      <i class = "fa fa-facebook-official w3-opacity-off w3-xxlarge w3-margin-right w3-hover-opacity"></i>
+    </a>
+    <a href = "https://www.instagram.com/sekcja_geoinformacji_uam/" target="_blank">
+      <i class = "fa fa-instagram w3-opacity-off w3-xxlarge w3-margin-right w3-margin-left w3-hover-opacity"></i>
+    </a>
+    <a href = "https://github.com/sekcja-geoinformacji-uam" target="_blank">
+      <i class = "fa fa-github w3-opacity-off w3-xxlarge w3-margin-left w3-hover-opacity"></i>
+    </a>
+  </div>
+  
+  </footer>
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <script scr = "main.js"></script>
 </body>
 <script>
+
 var map = L.map( 'map', {
-    center: [53.945871, 14.478967],
-    minZoom: 7,
-	  maxZoom: 35,
-    zoom: 17.5,
-	zoomSnap:0.001,
+  center: [53.945871, 14.478967],
+  minZoom: 7,
+  maxZoom: 35,
+  zoom: 18,
+zoomSnap:0.001,
 });
-var openstreetmap = L.tileLayer('', {
+
+var openstreetmap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     maxZoom: 35,
     maxNativeZoom: 34,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
+});
+
+
+var satelita = L.tileLayer('https://api.mapbox.com/styles/v1/adryanque/ckqqyye3r4st018letzv7n099/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiYWRyeWFucXVlIiwiYSI6ImNrZDk5bzd3YTAyMTkycG16MnVqeDJtOTEifQ.7tl32VrqOcLSfXMTj2X-YA', {
+    attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
+    maxZoom: 35,
+    maxNativeZoom: 34,
+});
+
+var empty = L.tileLayer('', {})
 
 var wms_service = "https://poznan-gis.pl/geoserver/wms"
 
-var nadlesnictwa = L.tileLayer.wms(wms_service, {
+var ortofotomapa = L.tileLayer.wms(wms_service, {
 layers: 'ortofotomapa',
 format: 'image/png',
 zIndex: 4,
@@ -66,5 +117,17 @@ transparent: true,
 opacity: 1
 }).addTo(map);
 
+
+var baseMaps = {
+  "Satelita": satelita,
+  "OpenStreetMap": openstreetmap,
+  "Brak": empty
+};
+
+var overlayMaps = {
+    "Ortofotomapa": ortofotomapa
+};
+
+var layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
 </script>
 </html>
