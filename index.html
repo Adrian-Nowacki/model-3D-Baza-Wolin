@@ -31,9 +31,31 @@ crossorigin=""/>
 
 <div class = "w3-container">
     <div class = "w3-twothird w3-container w3-padding-64" style = "padding-left:100px;">
-        <p>Poniższy projekt powstał w oparciu o wyjazd Sekcji Geoinformacji Studenckiego Koła Naukowego Geografów im. S. Pawłowskiego na Obóz Naukowy Wolin w Białej Górze.
-        Do nalotu fotogrametrycznego wykorzystano bezzałogowy statek powietrzny DJI Phantom 4 Advanced. Misję zaplanowano na ponad 3-godzinny lot, mający na celu uzyskanie niemal 3500 zdjęć z wysokości 80 metrów, o nachyleniu 90° oraz 75° względem poziomu.
+        <p>Poniższy projekt powstał w oparciu o wyjazd Sekcji Geoinformacji 
+          Studenckiego Koła Naukowego Geografów im. Stanisława 
+          Pawłowskiego na Obóz Naukowy Wolin w Białej Górze. Za zgodą
+          Wolińskiego Parku Narodowego wykonano nalot fotogrametryczny z 
+          misją automatyczną, podczas której przez ponad 3 godziny zdobyto
+          niemal 3500 zdjęć pokrywających się w 90% powierzchni obszaru. 
+          Do nalotu wykorzystano bezzałogowy statek powietrzny DJI 
+          Phantom 4 Advanced. W celu wykonania prawdziwej ortofotomapy 
+          o rozdzielczości 1,5 x 1,5 cm skorzystano z 235 zdjęć o nachyleniu 
+          90° względem poziomu.
         </p>
+
+      </br>
+
+        <p>
+          Dane do stworzenia modelu 3D uzyskano przez założenie osnowy geodezyjnej i wykonaniu 60 pomiarów, 
+które posłużyły za punkty testowe i treningowe. W celu obróbki modelu 3D SMŚP wykorzystano 3300 
+zdjęć z wysokości 80 metrów, o nachyleniu 90° oraz 75°. Model uzyskano za pomocą kilkudziesięciu 
+godzin przetwarzania zgromadzonych danych w oprogramowaniu Agisoft Metashape. Proces obróbki 
+obejmował między innymi kalibrację kamery i połączenie zdjęć w celu wykonania gęstej chmury 
+punktów, siatki oraz tekstury modelu
+        </p>
+
+      </br>
+
         <p>
           Ortofotomapa została publicznie udostępniona jako WMS w strefie 5 układu współrzędnych 2000 (EPSG:2176), pod adresem:<span id = "wms-link" style = "color:#58b0ba"> https://poznan-gis.pl/geoserver/Wolin/wms?version=1.1.0</span>.
         </p>
@@ -45,11 +67,17 @@ crossorigin=""/>
 </div>
 
   <div class = "w3-conteiner">
+    <h2 style = "text-align:center"> Ortofotomapa</h2>
     <div class = "w3-content w3-padding-64" id = "map">
     </div>
   </div>
 
   <div id = "box">
+    <h2 style = "text-align:center"> Model 3D</h2>
+    <h6 style = "text-align:center">Aby poprawnie wyświetlić model, pobierz wtyczkę do przeglądarki 
+      <a id = "wms-link" style = "color:#58b0ba" href = "https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf"> Allow CORS: Access-Control-Allow-Origin</a>, a następnie ją uruchom.
+    
+    </h6>
   <model-viewer id = "model-viewer" src="https://poznan-gis.pl/files/Textured_mesh_1.glb" 
   min-camera-orbit='auto auto 10%'
   max-camera-orbit='auto auto 300%'
