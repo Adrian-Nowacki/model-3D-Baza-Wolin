@@ -4,6 +4,11 @@
 https://adrian-nowacki.github.io/model-3D-Baza-Wolin/
 <br />
 
+<br />
+
+Ortofotomapa została publicznie udostępniona jako WMS w strefie 5 układu współrzędnych 2000 (EPSG:2176), pod adresem: https://poznan-gis.pl/geoserver/Wolin/wms?version=1.1.0.
+
+<br />
 
 <br />
 
