@@ -9,7 +9,7 @@ https://adrian-nowacki.github.io/model-3D-Baza-Wolin/
 
 * **Ortofotomapa**
 
-<img src="./img/orto.png" width="550">
+<img src="./img/orto.png" width="300">
 
 <br />
 
