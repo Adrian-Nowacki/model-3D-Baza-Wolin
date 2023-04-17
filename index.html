@@ -30,7 +30,7 @@ crossorigin=""/>
   </div>
 
 <div class = "w3-container">
-    <div class = "w3-twothird w3-container w3-padding-64" style = "padding-left:100px;">
+    <div class = "w3-twothird w3-container w3-padding-64" style = " text-align:justify!important;">
         <p>Poniższy projekt powstał w oparciu o wyjazd Sekcji Geoinformacji 
           Studenckiego Koła Naukowego Geografów im. Stanisława 
           Pawłowskiego na Obóz Naukowy Wolin w Białej Górze. Za zgodą
@@ -62,7 +62,7 @@ punktów, siatki oraz tekstury modelu
     </div>
 
     <div class = "w3-third">
-        <img id = "drone-logo" src = "img/drone.png" width = "125px" height = "125px"></img>
+        <img id = "drone-logo" src = "img/wolin.jpg" width = "400px" height = "300px"></img>
     </div>
 </div>
 
@@ -130,7 +130,7 @@ var satelita = L.tileLayer('https://api.mapbox.com/styles/v1/adryanque/ckqqyye3r
     attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
     maxZoom: 35,
     maxNativeZoom: 34,
-});
+}).addTo(map);
 
 var empty = L.tileLayer('', {})
 
