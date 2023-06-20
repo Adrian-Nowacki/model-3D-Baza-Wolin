@@ -1,7 +1,7 @@
 # Ortofotomapa oraz model 3D Stacji Monitoringu Środowiska Przyrodniczego UAM w Białej Górze
 
 <br />
-https://adrian-nowacki.github.io/model-3D-Baza-Wolin/
+https://sekcja-geoinformacji-uam.github.io/model-3D-Baza-Wolin/
 <br />
 
 <br />
