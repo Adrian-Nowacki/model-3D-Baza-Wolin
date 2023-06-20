@@ -78,8 +78,12 @@ punktów, siatki oraz tekstury modelu.
       <a id = "wms-link" style = "color:#58b0ba" href = "https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf"> Allow CORS: Access-Control-Allow-Origin</a>, a następnie ją uruchom.
     
     </h6>
+    <div style="text-align: center;">
+      <button id="model1-btn" class="w3-button w3-black w3-round-large w3-margin-bottom">Model 1</button>
+      <button id="model2-btn" class="w3-button w3-black w3-round-large w3-margin-bottom">Model 2</button>
+    </div>
   <model-viewer id = "model-viewer" 
-  src="https://poznan-gis.pl/files/Textured_mesh_1.glb" 
+  src="model_mobile.glb" 
   alt='Model 3D SMŚP Wolin'
   min-camera-orbit='auto auto 10%'
   max-camera-orbit='auto auto 300%'
@@ -161,5 +165,29 @@ var overlayMaps = {
 };
 
 var layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
+
+
+
+var model1Btn = document.getElementById("model1-btn");
+var model2Btn = document.getElementById("model2-btn");
+
+  
+var model1Path = "model_mobile.glb";
+var model2Path = "https://poznan-gis.pl/files/Textured_mesh_1.glb";
+
+  
+model1Btn.addEventListener("click", function() {
+  var modelViewer = document.getElementById("model-viewer");
+  modelViewer.src = model1Path;
+});
+
+  
+model2Btn.addEventListener("click", function() {
+  var modelViewer = document.getElementById("model-viewer");
+  modelViewer.src = model2Path;
+});
+
+
+
 </script>
 </html>
