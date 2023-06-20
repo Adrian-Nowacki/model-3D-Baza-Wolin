@@ -79,8 +79,8 @@ punktów, siatki oraz tekstury modelu.
     
     </h6>
     <div style="text-align: center;">
-      <button id="model1-btn" class="w3-button w3-black w3-round-large w3-margin-bottom">Model 1</button>
-      <button id="model2-btn" class="w3-button w3-black w3-round-large w3-margin-bottom">Model 2</button>
+      <button id="model1-btn" class="w3-button w3-black w3-round-large w3-margin-bottom">Model uproszczony</button>
+      <button id="model2-btn" class="w3-button w3-black w3-round-large w3-margin-bottom">Model szczegółowy</button>
     </div>
   <model-viewer id = "model-viewer" 
   src="https://media.githubusercontent.com/media/Adrian-Nowacki/model-3D-Baza-Wolin/main/model_mobile.glb" 
@@ -95,7 +95,7 @@ punktów, siatki oraz tekstury modelu.
   loading="eager"
   
   poster="img/poster.png"
-  camera-controls ar  ar-modes="webxr scene-viewer quick-look" touch-action="pan-y" background-color="transparent"></model-viewer>
+  camera-controls ar touch-action="pan-y" background-color="transparent"></model-viewer>
   </div>
 
   <footer id = "footer" class = "w3-xlarge  w3-container w3-center w3-padding-32 w3-opacity-min">
@@ -187,6 +187,7 @@ model1Btn.addEventListener("click", function() {
 model2Btn.addEventListener("click", function() {
   var modelViewer = document.getElementById("model-viewer");
   modelViewer.src = model2Path;
+  modelViewer.exposure= "0.1"
 });
 
 
