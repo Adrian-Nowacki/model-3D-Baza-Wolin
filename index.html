@@ -85,14 +85,15 @@ punktów, siatki oraz tekstury modelu.
   <model-viewer id = "model-viewer" 
   src="https://media.githubusercontent.com/media/Adrian-Nowacki/model-3D-Baza-Wolin/main/model_mobile.glb" 
   alt='Model 3D SMŚP Wolin'
+  exposure="0.6"
   min-camera-orbit='auto auto 10%'
+  camera-orbit="80deg 50deg 2000m"
   max-camera-orbit='auto auto 300%'
   min-field-of-view='5deg'
   max-field-of-view='5deg'
   orientation="180deg 180deg 0deg"
   loading="eager"
-  skybox-image="https://polskazachwyca.pl/wp-content/uploads/2018/02/woli%C5%84ski-park-narodowy-shutterstock_611604431.jpg"
-
+  
   poster="img/poster.png"
   camera-controls ar  ar-modes="webxr scene-viewer quick-look" touch-action="pan-y" background-color="transparent"></model-viewer>
   </div>
@@ -112,9 +113,10 @@ punktów, siatki oraz tekstury modelu.
   </div>
   
   </footer>
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script>
+  <!--<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <script type="module" src="https://unpkg.com/@google/model-viewer@0.3.1/dist/model-viewer.js"></script> 
-  <script nomodule src="https: //unpkg.com/@google/model-viewer@0.3.1/dist/model-viewer-legacy.js"></script>
+  <script nomodule src="https: //unpkg.com/@google/model-viewer@0.3.1/dist/model-viewer-legacy.js"></script>-->
   <script scr = "main.js"></script>
 </body>
 <script>
