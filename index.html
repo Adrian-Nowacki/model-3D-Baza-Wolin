@@ -69,7 +69,7 @@ crossorigin=""/>
   <div class = "w3-conteiner">
     <h2 style = "text-align:center"> Model 3D</h2>
     <h6 style = "text-align:center;margin-left:20px; margin-right:20px">Domyślnie wyświetlanym modelem jest wersja uproszczona, 
-      możliwa do wyświetlenia również w rozszerzonej rzeczywistości. <br> W celu wyświetlenia modelu szczegółowego należy skorzystać z przeglądarki w wersji na komputer.
+      możliwa do wizualizacji również w rozszerzonej rzeczywistości. <br> W celu wyświetlenia modelu szczegółowego należy skorzystać z przeglądarki w wersji na komputer.
     
     </h6>
     <div style="text-align: center;">
@@ -79,7 +79,7 @@ crossorigin=""/>
   <model-viewer id = "model-viewer" 
   src="https://media.githubusercontent.com/media/Adrian-Nowacki/model-3D-Baza-Wolin/main/model_mobile.glb" 
   alt='Model 3D SMŚP Wolin'
-  exposure="0.6"
+  exposure = "0.6"
   min-camera-orbit='auto auto 10%'
   camera-orbit="80deg 50deg 2000m"
   max-camera-orbit='auto auto 300%'
@@ -87,7 +87,6 @@ crossorigin=""/>
   max-field-of-view='5deg'
   orientation="180deg 180deg 0deg"
   loading="eager"
-  
   poster="img/poster.png"
   camera-controls ar ar-modes="webxr scene-viewer quick-look" touch-action="pan-y" background-color="transparent"></model-viewer>
   </div>
@@ -171,17 +170,25 @@ var model2Btn = document.getElementById("model2-btn");
 var model1Path = "https://media.githubusercontent.com/media/Adrian-Nowacki/model-3D-Baza-Wolin/main/model_mobile.glb";
 var model2Path = "https://poznan-gis.pl/files/Textured_mesh_1.glb";
 
-  
+
+    
 model1Btn.addEventListener("click", function() {
   var modelViewer = document.getElementById("model-viewer");
   modelViewer.src = model1Path;
+  modelViewer.setAttribute("exposure", "0.6");
+
+  model1Btn.classList.add("active");
+  model2Btn.classList.remove("active");
 });
 
-  
+
 model2Btn.addEventListener("click", function() {
   var modelViewer = document.getElementById("model-viewer");
   modelViewer.src = model2Path;
-  modelViewer.exposure= "0.1"
+  modelViewer.setAttribute("exposure", "0.3");
+
+  model1Btn.classList.remove("active");
+  model2Btn.classList.add("active");
 });
 
 

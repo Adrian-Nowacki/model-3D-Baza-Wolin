@@ -172,4 +172,8 @@ footer {
       font-weight: bold;
     }
 
+    button.active {
+      background-color: #aaaaaa!important;
+      color: #222222!important;
+    }
     
