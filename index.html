@@ -50,7 +50,7 @@ crossorigin=""/>
       </br>
 
         <p>
-          Ortofotomapa została udostępniona publicznie jako usługa WMS (Web Map Service) w strefie 5 układu współrzędnych 2000 (EPSG:2176), pod adresem:<span id = "wms-link" style = "color:#58b0ba"> <br> https://poznan-gis.pl/geoserver/Wolin/wms?version=1.1.0</span>.
+          Ortofotomapa została udostępniona publicznie jako usługa WMS (Web Map Service) w strefie 5 układu współrzędnych 2000 (EPSG:2176), pod adresem:<span id = "wms-link" style = "color:#58b0ba"> <br> http://46.101.146.68/geoserver/Wolin/wms?version=1.1.0</span>.
           Projekt umożliwia wizualizację modelu 3D w dwóch rozdzielczościach, pozwalając również na wyświetlenie modelu w rozszerzonej rzeczywistości (AR).
         </p>
     </div>
@@ -137,7 +137,7 @@ var satelita = L.tileLayer('https://api.mapbox.com/styles/v1/adryanque/ckqqyye3r
 
 var empty = L.tileLayer('', {})
 
-var wms_service = "https://poznan-gis.pl/geoserver/wms"
+var wms_service = "http://46.101.146.68/geoserver/wms"
 
 var ortofotomapa = L.tileLayer.wms(wms_service, {
 layers: 'ortofotomapa',
@@ -168,7 +168,7 @@ var model2Btn = document.getElementById("model2-btn");
 
   
 var model1Path = "https://media.githubusercontent.com/media/Adrian-Nowacki/model-3D-Baza-Wolin/main/model_mobile.glb";
-var model2Path = "https://poznan-gis.pl/files/Textured_mesh_1.glb";
+var model2Path = "http://46.101.146.68/files/Textured_mesh_1.glb";
 
 
     
