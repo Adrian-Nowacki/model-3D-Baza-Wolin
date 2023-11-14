@@ -21,6 +21,7 @@ crossorigin=""/>
       integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
       crossorigin=""></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.js"></script>
+  <script src="https://unpkg.com/leaflet-geotiff/leaflet-geotiff.js"></script>
 </head>
 
 
@@ -140,20 +141,19 @@ var empty = L.tileLayer('', {})
 
 var wms_service = "http://46.101.146.68/geoserver/wms"
 
-var ortofotomapa = L.tileLayer.wms(wms_service, {
-layers: 'ortofotomapa',
-format: 'image/png',
-zIndex: 4,
-maxZoom:35,
-transparent: true,
-opacity: 1,
-crossOrigin: true,
-}).addTo(map);
+//var ortofotomapa = L.tileLayer.wms(wms_service, {
+//layers: 'ortofotomapa',
+//format: 'image/png',
+//zIndex: 4,
+//maxZoom:35,
+//transparent: true,
+//opacity: 1,
+//crossOrigin: true,
+//}).addTo(map);
 
-fetch(wms_service, {
-        // ...
-        referrerPolicy: "no-referrer"
-    });
+var ortofotomapa = L.leafletGeotiff('https://media.githubusercontent.com/media/Adrian-Nowacki/model-3D-Baza-Wolin/main/img/orto.tif').addTo(map);
+
+tiffLayer.setDisplayMode('rgba');
 
 
 var baseMaps = {
