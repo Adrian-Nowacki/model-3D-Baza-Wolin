@@ -138,10 +138,7 @@ var satelita = L.tileLayer('https://api.mapbox.com/styles/v1/adryanque/ckqqyye3r
 
 var empty = L.tileLayer('', {})
 
-var wms_service = fetch("http://46.101.146.68/geoserver/wms", {
-    // ...
-    referrerPolicy: "unsafe_url" 
-});
+var wms_service = "http://46.101.146.68/geoserver/wms"
 
 var ortofotomapa = L.tileLayer.wms(wms_service, {
 layers: 'ortofotomapa',
@@ -149,8 +146,14 @@ format: 'image/png',
 zIndex: 4,
 maxZoom:35,
 transparent: true,
-opacity: 1
+opacity: 1,
+crossOrigin: true,
 }).addTo(map);
+
+fetch(wms_service, {
+        // ...
+        referrerPolicy: "unsafe_url"
+    });
 
 
 var baseMaps = {
